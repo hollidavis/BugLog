@@ -6,10 +6,8 @@ class NotesService {
     const note = await dbContext.Notes.create(body)
     return await dbContext.Notes.findById(note._id)
       .populate('creator', 'name picture')
-      .populate('bug', 'id')
   }
 
-  // TODO
   async destroy(id, body) {
     const note = await dbContext.Notes.findById(id)
     if (!note) {
