@@ -15,17 +15,17 @@ class BugsService {
     return bug
   }
 
-  async create(body) {
-    const bug = await dbContext.Bugs.create(body)
-    return await dbContext.Bugs.findById(bug._id).populate('creator', 'name picture')
-  }
-
   async getNotesByBugId(query = {}) {
     const notes = await dbContext.Notes.find(query)
     if (!notes) {
       throw new BadRequest('Invalid Id')
     }
     return notes
+  }
+
+  async create(body) {
+    const bug = await dbContext.Bugs.create(body)
+    return await dbContext.Bugs.findById(bug._id).populate('creator', 'name picture')
   }
 
   async edit(id, body) {
