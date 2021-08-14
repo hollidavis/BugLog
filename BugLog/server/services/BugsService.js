@@ -20,6 +20,14 @@ class BugsService {
     return await dbContext.Bugs.findById(bug._id).populate('creator', 'name picture')
   }
 
+  async getNotesByBugId(id) {
+    const notes = await dbContext.Notes.find({ bugId: id })
+    if (!notes) {
+      throw new BadRequest('Invalid Id')
+    }
+    return notes
+  }
+
   async edit(id, body) {
     const bug = await this.getById(id)
     if (!bug) {
