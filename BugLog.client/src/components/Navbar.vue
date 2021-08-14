@@ -1,6 +1,6 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#"><h4>BugL<span class="fas fa-xs fa-bug"></span>g</h4></a>
+  <nav class="col-12 navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><h3>BugL<span class="fas fa-xs fa-bug"></span>g</h3></a>
     <button class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"

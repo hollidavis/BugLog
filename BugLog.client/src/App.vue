@@ -1,12 +1,12 @@
 <template>
-  <header>
+  <header class="row">
     <Navbar />
   </header>
-  <main class="container-fluid">
+  <main class="row">
     <router-view />
   </main>
-  <footer>
-    <div class="bg-secondary text-white text-center p-2">
+  <footer class="row">
+    <div class="col-12 bg-secondary text-white text-center p-2">
       Made with 💖 by Holli
     </div>
   </footer>

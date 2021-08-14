@@ -1,7 +1,7 @@
 <template>
-  <div class="row">
+  <div class="row bg-light mt-3">
     <div class="col-12">
-      {{ note }}
+      {{ bug }}
     </div>
   </div>
 </template>
@@ -9,7 +9,7 @@
 <script>
 export default {
   props: {
-    note: { type: Object, required: true }
+    bug: { type: Object, required: true }
   },
   setup() {
     return {}
