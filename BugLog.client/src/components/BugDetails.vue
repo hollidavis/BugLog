@@ -1,7 +1,9 @@
 <template>
-  <div class="row bg-light mt-3">
+  <div class="row mt-3">
     <div class="col-12">
-      {{ bug }}
+      <div class="bg-light rounded p-3">
+        {{ bug }}
+      </div>
     </div>
   </div>
 </template>

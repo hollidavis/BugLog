@@ -1,10 +1,12 @@
 <template>
-  <div class="row">
-    <div class="col-12">
-      Note Thread Header
+  <div class="row mt-3">
+    <!-- Header -->
+    <div class="col-12 mb-2">
+      <div class="bg-light rounded p-3 d-flex flex-row justify-content-around">
+        Header?
+      </div>
     </div>
-  </div>
-  <div class="row">
+    <!-- Note Cards -->
     <div class="col-12" v-for="n in notes" :key="n.id">
       <Note :note="n" />
     </div>
