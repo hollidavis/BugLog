@@ -5,6 +5,7 @@
         <!-- Header -->
         <div class="row align-items-center">
           <div class="d-flex align-items-center">
+            <!-- Picture -->
             <img class="profile-pic ml-3" :src="bug.creator?.picture" :alt="bug.creator?.name + 'Profile Picture'">
             <!-- Reported/Name -->
             <div class="ml-3">

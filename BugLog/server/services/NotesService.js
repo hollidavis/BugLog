@@ -4,8 +4,7 @@ import { BadRequest, Forbidden } from '../utils/Errors'
 class NotesService {
   async create(body) {
     const note = await dbContext.Notes.create(body)
-    return await dbContext.Notes.findById(note._id)
-      .populate('creator', 'name picture')
+    return await dbContext.Notes.findById(note._id).populate('creator', 'name picture')
   }
 
   async destroy(id, body) {
