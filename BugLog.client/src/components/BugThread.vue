@@ -26,23 +26,71 @@
           <h5 class="m-0">
             Status:
           </h5>
+          <button type="button" class="btn btn-sm btn-primary" @click.stop="filterBugs('all')">
+            All
+          </button>
+          <button type="button" class="btn btn-sm btn-primary" @click.stop="filterBugs('open')">
+            Open
+          </button>
+          <button type="button" class="btn btn-sm btn-primary" @click.stop="filterBugs('closed')">
+            Closed
+          </button>
         </div>
       </div>
     </div>
     <!-- Bug Cards -->
-    <div class="col-12" v-for="b in bugs" :key="b.id">
-      <Bug :bug="b" />
+    <div class="w-100" v-if="state.filterClosed === true">
+      <div class="col-12" v-for="b in closed" :key="b.id">
+        <Bug :bug="b" />
+      </div>
+    </div>
+    <div class="w-100" v-else-if="state.filterOpen === true">
+      <div class="col-12" v-for="b in open" :key="b.id">
+        <Bug :bug="b" />
+      </div>
+    </div>
+    <div class="w-100" v-else-if="state.filterAll === true">
+      <div class="col-12" v-for="b in bugs" :key="b.id">
+        <Bug :bug="b" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { reactive } from '@vue/reactivity'
+import { computed } from '@vue/runtime-core'
+import { AppState } from '../AppState'
 export default {
   props: {
     bugs: { type: Array, required: true }
   },
   setup() {
-    return {}
+    const state = reactive({
+      filterAll: true,
+      filterClosed: false,
+      filterOpen: false
+    })
+    return {
+      state,
+      open: computed(() => AppState.bugs.filter(bug => bug.closed === false)),
+      closed: computed(() => AppState.bugs.filter(bug => bug.closed === true)),
+      async filterBugs(filter) {
+        if (filter === 'all') {
+          state.filterAll = true
+          state.filterClosed = false
+          state.filterOpen = false
+        } else if (filter === 'open') {
+          state.filterAll = false
+          state.filterClosed = false
+          state.filterOpen = true
+        } else if (filter === 'closed') {
+          state.filterAll = false
+          state.filterClosed = true
+          state.filterOpen = false
+        }
+      }
+    }
   }
 }
 </script>
