@@ -24,9 +24,9 @@ class BugsService {
     return res.data.id
   }
 
-  async editBug(newBug, id) {
-    await api.put('api/bugs/' + id, newBug)
-    this.getAllBugs()
+  async editBug(id, editBug) {
+    const res = await api.put('api/bugs/' + id, editBug)
+    AppState.activeBug = res.data
   }
 
   async closeBug(id) {

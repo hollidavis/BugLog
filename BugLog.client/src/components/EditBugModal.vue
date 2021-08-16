@@ -1,7 +1,7 @@
 <template>
   <!-- Modal -->
   <div class="modal fade"
-       id="createBugModal"
+       :id="'editBugModal' + bug.id"
        tabindex="-1"
        role="dialog"
        aria-labelledby="modelTitleId"
@@ -11,35 +11,33 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">
-            Report New Bug
+            Edit Bug
           </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form @submit.prevent="createBug">
+          <form @submit.prevent="editBug">
             <div class="form-group">
               <input type="text"
                      name="title"
-                     v-model="state.newBug.title"
+                     v-model="state.editBug.title"
                      class="form-control"
                      placeholder="Title..."
-                     aria-describedby="titleHelpId"
-                     required
+                     aria-describedby="titleEditHelpId"
               >
-              <small id="titleHelpId" class="text-muted">Input Bug Title</small>
+              <small id="titleEditHelpId" class="text-muted">Edit Bug Title</small>
             </div>
             <div class="form-group">
               <input type="text"
                      name="description"
-                     v-model="state.newBug.description"
+                     v-model="state.editBug.description"
                      class="form-control"
                      placeholder="Description..."
-                     aria-describedby="descriptionHelpId"
-                     required
+                     aria-describedby="descriptionEditHelpId"
               >
-              <small id="descriptionHelpId" class="text-muted">Input Bug Description</small>
+              <small id="descriptionEditHelpId" class="text-muted">Edit Bug Description</small>
             </div>
             <button type="submit" class="btn btn-primary">
               Submit
@@ -58,18 +56,23 @@ import Pop from '../utils/Notifier'
 import $ from 'jquery'
 import { router } from '../router'
 export default {
-  setup() {
+  props: {
+    bug: { type: Object, required: true }
+  },
+  setup(props) {
     const state = reactive({
-      newBug: {}
+      editBug: {
+        bugId: props.bug.id
+      }
     })
     return {
       state,
-      async createBug() {
+      async editBug() {
         try {
-          const newId = await bugsService.createBug(state.newBug)
-          state.newBug = {}
-          $('#createBugModal').modal('hide')
-          router.push({ name: 'BugDetailsPage', params: { bugId: newId } })
+          await bugsService.editBug(props.bug.id, state.editBug)
+          state.editBug = { bugId: props.bug.id }
+          $('#editBugModal' + props.bug.id).modal('hide')
+          router.push({ name: 'BugDetailsPage', params: { bugId: props.bug.id } })
           Pop.toast('Successfully Created', 'success')
         } catch (error) {
           Pop.toast(error, 'error')

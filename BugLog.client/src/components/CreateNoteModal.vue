@@ -27,7 +27,7 @@
                      placeholder="Note..."
                      aria-describedby="titleHelpId"
               >
-              <small id="titleHelpId" class="text-muted">Input Note Title</small>
+              <small id="titleHelpId" class="text-muted">Input Note</small>
             </div>
             <button type="submit" class="btn btn-primary">
               Submit

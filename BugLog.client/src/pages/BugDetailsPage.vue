@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { computed, onMounted } from '@vue/runtime-core'
+import { computed, onMounted, watchEffect } from '@vue/runtime-core'
 import { useRoute } from 'vue-router'
 import { AppState } from '../AppState'
 import { bugsService } from '../services/BugsService'
@@ -33,7 +33,7 @@ export default {
         }
       }
     })
-    onMounted(async() => {
+    watchEffect(async() => {
       try {
         await bugsService.getBugById(route.params.bugId)
       } catch (error) {

@@ -2,6 +2,25 @@
   <div class="row mt-3">
     <div class="col-12">
       <div class="bg-light rounded p-3">
+        <div class="row">
+          <div class=" ml-3 mb-2 mr-auto">
+            <h3 class="m-0">
+              {{ bug.title }}
+            </h3>
+          </div>
+          <!-- Edit Bug Button -->
+          <div>
+            <button type="button" class="btn btn-sm btn-success" data-toggle="modal" :data-target="'#editBugModal' + bug.id">
+              <span class="fas fa-edit"></span>
+            </button>
+          </div>
+          <!-- Delete Bug Button -->
+          <div>
+            <button type="button" class="btn btn-sm btn-danger mx-2">
+              <span class="fa fa-times"></span>
+            </button>
+          </div>
+        </div>
         <!-- Header -->
         <div class="row align-items-center">
           <div class="d-flex align-items-center">
@@ -59,6 +78,7 @@
       </div>
     </div>
   </div>
+  <EditBugModal :bug="bug" />
 </template>
 
 <script>

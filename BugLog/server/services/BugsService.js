@@ -39,7 +39,7 @@ class BugsService {
     if (bug.closed) {
       throw new BadRequest('This bug is closed')
     }
-    const updated = await dbContext.Bugs.findByIdAndUpdate(id, body, { new: true })
+    const updated = await dbContext.Bugs.findByIdAndUpdate(id, body, { new: true }).populate('creator', 'name picture')
     return updated
   }
 

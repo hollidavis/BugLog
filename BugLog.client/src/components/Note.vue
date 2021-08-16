@@ -13,10 +13,7 @@
             </p>
           </div>
           <div v-if="account.id === note.creatorId">
-            <button type="button" class="btn btn-success text-shadow">
-              <span class="fas fa-edit"></span>
-            </button>
-            <button type="button" class="btn btn-danger text-shadow ml-2">
+            <button type="button" class="btn btn-sm btn-danger text-shadow ml-2" @click.stop="deleteNote">
               <span class="fa fa-times"></span>
             </button>
           </div>
@@ -35,14 +32,26 @@
 <script>
 import { computed } from '@vue/runtime-core'
 import { AppState } from '../AppState'
+import Pop from '../utils/Notifier'
+import { notesService } from '../services/NotesService'
+import { useRoute } from 'vue-router'
 export default {
   props: {
     note: { type: Object, required: true }
   },
-  setup() {
+  setup(props) {
     const account = computed(() => AppState.account)
+    const route = useRoute()
     return {
-      account
+      account,
+      async deleteNote() {
+        try {
+          await notesService.deleteNote(props.note.id, route.params.bugId)
+          Pop.toast('Successfully Deleted!', 'success')
+        } catch (error) {
+          Pop.toast(error, 'error')
+        }
+      }
     }
   }
 }

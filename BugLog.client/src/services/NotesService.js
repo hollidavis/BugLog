@@ -7,9 +7,9 @@ class NotesService {
     bugsService.getNotesByBugId(res.data.bugId)
   }
 
-  async deleteNote(id) {
-    const res = await api.delete('api/notes/' + id)
-    bugsService.getNotesByBugId(res.bugId)
+  async deleteNote(id, bugId) {
+    await api.delete('api/notes/' + id)
+    bugsService.getNotesByBugId(bugId)
   }
 }
 

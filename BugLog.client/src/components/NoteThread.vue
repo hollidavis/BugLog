@@ -3,7 +3,7 @@
     <!-- Header -->
     <div class="col-12 mb-2">
       <div class="bg-light rounded p-3 d-flex flex-row align-items-center">
-        <h5 class="m-0 text-dark mr-auto">
+        <h5 class="m-0 mr-auto">
           Notes:
         </h5>
         <div>
@@ -12,7 +12,6 @@
           </button>
         </div>
       </div>
-      <CreateNoteModal />
     </div>
     <!-- Note Cards -->
     <div class="col-12" v-for="n in notes" :key="n.id">
