@@ -35,7 +35,9 @@ export default {
     })
     watchEffect(async() => {
       try {
-        await bugsService.getBugById(route.params.bugId)
+        if (route.params.bugId) {
+          await bugsService.getBugById(route.params.bugId)
+        }
       } catch (error) {
         Pop.toast(error, 'error')
       }

@@ -1,5 +1,5 @@
 <template>
-  <div class="row mt-3">
+  <div class="row mt-3" v-if="account">
     <div class="col-12">
       <div class="bg-light rounded p-3">
         <div class="row">
@@ -9,13 +9,11 @@
             </h3>
           </div>
           <!-- Edit Bug Button -->
-          <div>
+          <div v-if="account.id == bug.creatorId">
             <button type="button" class="btn btn-sm btn-success" data-toggle="modal" :data-target="'#editBugModal' + bug.id">
               <span class="fas fa-edit"></span>
             </button>
-          </div>
-          <!-- Delete Bug Button -->
-          <div>
+            <!-- Delete Bug Button -->
             <button type="button" class="btn btn-sm btn-danger mx-2">
               <span class="fa fa-times"></span>
             </button>
@@ -82,12 +80,14 @@
 </template>
 
 <script>
-import { reactive, watchEffect } from '@vue/runtime-core'
+import { computed, reactive, watchEffect } from '@vue/runtime-core'
+import { AppState } from '../AppState'
 export default {
   props: {
     bug: { type: Object, required: true }
   },
   setup(props) {
+    const account = computed(() => AppState.account)
     const state = reactive({
       updatedAt: ''
     })
@@ -101,7 +101,8 @@ export default {
       }
     })
     return {
-      state
+      state,
+      account
     }
   }
 }
