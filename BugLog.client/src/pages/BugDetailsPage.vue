@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { computed, onMounted, watchEffect } from '@vue/runtime-core'
+import { computed, onMounted } from '@vue/runtime-core'
 import { useRoute } from 'vue-router'
 import { AppState } from '../AppState'
 import { bugsService } from '../services/BugsService'
@@ -22,9 +22,9 @@ import Pop from '../utils/Notifier'
 export default {
   setup() {
     const route = useRoute()
-    const notes = computed(() => AppState.notes[route.params.bugId] || [])
+    const notes = computed(() => AppState.notes)
     const bug = computed(() => AppState.activeBug)
-    watchEffect(async() => {
+    onMounted(async() => {
       if (route.params.bugId) {
         try {
           await bugsService.getNotesByBugId(route.params.bugId)

@@ -14,8 +14,7 @@ class BugsService {
 
   async getNotesByBugId(id) {
     const res = await api.get('api/bugs/' + id + '/notes')
-    AppState.notes[id] = res.data
-    console.log(res.data)
+    AppState.notes = res.data
   }
 
   async createBug(newBug) {

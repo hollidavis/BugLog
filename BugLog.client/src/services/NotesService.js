@@ -4,7 +4,7 @@ import { bugsService } from './BugsService'
 class NotesService {
   async createNote(newNote) {
     const res = await api.post('api/notes', newNote)
-    bugsService.getNotesByBugId(res.bugId)
+    bugsService.getNotesByBugId(res.data.bugId)
   }
 
   async deleteNote(id) {
