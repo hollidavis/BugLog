@@ -13,8 +13,8 @@
             <button type="button" class="btn btn-sm btn-success" data-toggle="modal" :data-target="'#editBugModal' + bug.id" v-if="bug.closed === false">
               <span class="fas fa-edit"></span>
             </button>
-            <!-- Delete Bug Button -->
-            <button type="button" class="btn btn-sm btn-danger mx-2" v-if="bug.closed === false">
+            <!-- Close Bug Button -->
+            <button type="button" class="btn btn-sm btn-danger mx-2" @click.stop="closeBug" v-if="bug.closed === false">
               <span class="fa fa-times"></span>
             </button>
           </div>
@@ -82,6 +82,9 @@
 <script>
 import { computed, reactive, watchEffect } from '@vue/runtime-core'
 import { AppState } from '../AppState'
+import { bugsService } from '../services/BugsService'
+import Pop from '../utils/Notifier'
+import { router } from '../router'
 export default {
   props: {
     bug: { type: Object, required: true }
@@ -102,7 +105,18 @@ export default {
     })
     return {
       state,
-      account
+      account,
+      async closeBug() {
+        try {
+          if (await Pop.confirm()) {
+            await bugsService.closeBug(props.bug.id)
+            router.push({ name: 'Home' })
+            Pop.toast('Bug Successfully Close', 'success')
+          }
+        } catch (error) {
+          Pop.toast(error, 'error')
+        }
+      }
     }
   }
 }
