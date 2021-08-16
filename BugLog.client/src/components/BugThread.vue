@@ -2,28 +2,28 @@
   <div class="row">
     <!-- Header -->
     <div class="col-12 mb-2">
-      <div class="bg-light rounded p-3 d-flex flex-row justify-content-around">
+      <div class="row bg-light rounded p-3 mx-1 d-flex flex-row align-items-center">
         <!-- Title -->
-        <div class="w-25 text-center">
-          <h5 class="m-0">
+        <div class="col-md-3 text-center">
+          <h5 class="">
             Title:
           </h5>
         </div>
         <!-- Reported By -->
-        <div class="w-25 text-center">
-          <h5 class="m-0">
+        <div class="col-md-3 text-center">
+          <h5 class="">
             Reported By:
           </h5>
         </div>
         <!-- Last Modified -->
-        <div class="w-25 text-center">
-          <h5 class="m-0">
+        <div class="col-md-3 text-center">
+          <h5 class="">
             Last Modified:
           </h5>
         </div>
         <!-- Status -->
-        <div class="w-25 text-center">
-          <h5 class="m-0">
+        <div class="col-md-3 text-center">
+          <h5 class="">
             Status:
           </h5>
           <button type="button" class="btn btn-sm btn-info" @click.stop="filterBugs('all')">

@@ -1,5 +1,5 @@
 <template>
-  <div class="row mt-3" v-if="account">
+  <div class="row mt-3" v-if="account.id">
     <div class="col-12">
       <div class="bg-light rounded p-3">
         <div class="row">

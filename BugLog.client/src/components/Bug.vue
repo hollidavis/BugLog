@@ -1,9 +1,9 @@
 <template>
   <div class="row my-2 text-light">
     <div class="col-12">
-      <div class="d-flex p-3 flex-row justify-content-around bg-primary rounded lead">
+      <div class="d-flex p-3 flex-row row mx-1 justify-content-around bg-primary rounded lead">
         <!-- Title -->
-        <div class="w-25 text-center">
+        <div class="col-md-3 text-center">
           <router-link :to="{name:'BugDetailsPage', params: { bugId: bug.id } }" :title="'Navigate to ' + bug.name + ' Details Page'">
             <p class="m-0 text-light">
               {{ bug.title }}
@@ -11,19 +11,19 @@
           </router-link>
         </div>
         <!-- Reported By -->
-        <div class="w-25 text-center">
+        <div class="col-md-3 text-center">
           <p class="m-0">
             {{ bug.creator.name }}
           </p>
         </div>
         <!-- Last Modified -->
-        <div class="w-25 text-center">
+        <div class="col-md-3 text-center">
           <p class="m-0">
             {{ updatedAt }}
           </p>
         </div>
         <!-- Status -->
-        <div class="w-25 text-center">
+        <div class="col-md-3 text-center">
           <p class="m-0" v-if="bug.closed === false">
             🟢 Open
           </p>

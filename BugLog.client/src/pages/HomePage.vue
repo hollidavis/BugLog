@@ -6,7 +6,7 @@
           Bugs
         </h4>
         <!-- Create Bug Button -->
-        <div>
+        <div v-if="account.id">
           <button type="button" class="btn btn-success text-shadow" data-toggle="modal" data-target="#createBugModal">
             Report Bug
           </button>
@@ -27,10 +27,12 @@ import { bugsService } from '../services/BugsService'
 import { AppState } from '../AppState'
 export default {
   setup() {
+    const account = computed(() => AppState.account)
     onMounted(() => {
       bugsService.getAllBugs()
     })
     return {
+      account,
       bugs: computed(() => AppState.bugs)
     }
   }
