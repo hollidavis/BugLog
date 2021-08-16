@@ -2,6 +2,7 @@
   <div class="row mt-3">
     <div class="col-12">
       <div class="bg-light rounded p-3">
+        <!-- Header -->
         <div class="row align-items-center">
           <div class="d-flex align-items-center">
             <img class="profile-pic ml-3" :src="bug.creator?.picture" :alt="bug.creator?.name + 'Profile Picture'">
@@ -45,6 +46,13 @@
                 🔴 Closed
               </p></b>
             </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="mx-3 mt-3 text-break">
+            <p class="m-0">
+              {{ bug.description }}
+            </p>
           </div>
         </div>
       </div>

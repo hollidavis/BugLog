@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-12">
-      <div class="bg-primary rounded">
+      <div class="bg-primary text-light rounded">
         {{ note }}
       </div>
     </div>
