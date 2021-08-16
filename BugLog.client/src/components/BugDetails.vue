@@ -10,11 +10,17 @@
           </div>
           <!-- Edit Bug Button -->
           <div v-if="account.id == bug.creatorId">
-            <button type="button" class="btn btn-sm btn-success" data-toggle="modal" :data-target="'#editBugModal' + bug.id" v-if="bug.closed === false">
+            <button type="button"
+                    class="btn btn-sm btn-success"
+                    data-toggle="modal"
+                    :data-target="'#editBugModal' + bug.id"
+                    v-if="bug.closed === false"
+                    :title="'Edit Bug' + bug.title"
+            >
               <span class="fas fa-edit"></span>
             </button>
             <!-- Close Bug Button -->
-            <button type="button" class="btn btn-sm btn-danger mx-2" @click.stop="closeBug" v-if="bug.closed === false">
+            <button type="button" class="btn btn-sm btn-danger mx-2" @click.stop="closeBug" v-if="bug.closed === false" :title="'Close Bug' + bug.title">
               <span class="fa fa-times"></span>
             </button>
           </div>

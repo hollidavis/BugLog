@@ -26,13 +26,13 @@
           <h5 class="">
             Status:
           </h5>
-          <button type="button" class="btn btn-sm btn-info" @click.stop="filterBugs('all')">
+          <button type="button" class="btn btn-sm btn-info" @click.stop="filterBugs('all')" title="Filter All Bugs">
             All
           </button>
-          <button type="button" class="btn btn-sm btn-success mx-1" @click.stop="filterBugs('open')">
+          <button type="button" class="btn btn-sm btn-success mx-1" @click.stop="filterBugs('open')" title="Filter Open Bugs">
             Open
           </button>
-          <button type="button" class="btn btn-sm btn-danger" @click.stop="filterBugs('closed')">
+          <button type="button" class="btn btn-sm btn-danger" @click.stop="filterBugs('closed')" title="Filter Closed Bugs">
             Closed
           </button>
         </div>

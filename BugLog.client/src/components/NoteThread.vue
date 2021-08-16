@@ -7,7 +7,13 @@
           Notes:
         </h5>
         <div v-if="account.id == bug.creatorId">
-          <button type="button" class="btn btn-success text-shadow" data-toggle="modal" data-target="#createNoteModal" v-if="bug.closed === false">
+          <button type="button"
+                  class="btn btn-success text-shadow"
+                  data-toggle="modal"
+                  data-target="#createNoteModal"
+                  v-if="bug.closed === false"
+                  title="Create Note Button"
+          >
             New Note
           </button>
         </div>

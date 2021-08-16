@@ -13,7 +13,7 @@
           <h5 class="modal-title">
             Edit Bug
           </h5>
-          <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close" :title="'Close Edit' + bug.title + 'Modal'">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -39,7 +39,7 @@
               >
               <small id="descriptionEditHelpId" class="text-muted">Edit Bug Description</small>
             </div>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary" :title="'Submit Edit '+ bug.title + 'Modal'">
               Submit
             </button>
           </form>

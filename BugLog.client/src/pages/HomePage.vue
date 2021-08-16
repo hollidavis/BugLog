@@ -7,7 +7,7 @@
         </h4>
         <!-- Create Bug Button -->
         <div v-if="account.id">
-          <button type="button" class="btn btn-success text-shadow" data-toggle="modal" data-target="#createBugModal">
+          <button type="button" class="btn btn-success text-shadow" data-toggle="modal" data-target="#createBugModal" title="Report New Bug">
             Report Bug
           </button>
         </div>

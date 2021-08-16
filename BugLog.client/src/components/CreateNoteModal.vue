@@ -13,7 +13,7 @@
           <h5 class="modal-title">
             New Note
           </h5>
-          <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close" title="Close Create Note Modal">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -29,7 +29,7 @@
               >
               <small id="titleHelpId" class="text-muted">Input Note</small>
             </div>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary" title="Submit Create Note Form">
               Submit
             </button>
           </form>

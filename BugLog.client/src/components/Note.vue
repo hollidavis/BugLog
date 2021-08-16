@@ -13,7 +13,7 @@
             </p>
           </div>
           <div v-if="account.id === note.creatorId">
-            <button type="button" class="btn btn-sm btn-danger text-shadow ml-2" @click.stop="deleteNote" v-if="bug.closed === false">
+            <button type="button" class="btn btn-sm btn-danger text-shadow ml-2" @click.stop="deleteNote" v-if="bug.closed === false" :title="'Delete' + note.body">
               <span class="fa fa-times"></span>
             </button>
           </div>

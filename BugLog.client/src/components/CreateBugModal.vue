@@ -13,7 +13,7 @@
           <h5 class="modal-title">
             Report New Bug
           </h5>
-          <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close" title="Close Create Bug Modal">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -41,7 +41,7 @@
               >
               <small id="descriptionHelpId" class="text-muted">Input Bug Description</small>
             </div>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary" title="Submit Create Bug Form">
               Submit
             </button>
           </form>
