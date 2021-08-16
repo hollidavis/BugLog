@@ -13,7 +13,7 @@
             </p>
           </div>
           <div v-if="account.id === note.creatorId">
-            <button type="button" class="btn btn-sm btn-danger text-shadow ml-2" @click.stop="deleteNote">
+            <button type="button" class="btn btn-sm btn-danger text-shadow ml-2" @click.stop="deleteNote" v-if="bug.closed === false">
               <span class="fa fa-times"></span>
             </button>
           </div>
@@ -37,7 +37,8 @@ import { notesService } from '../services/NotesService'
 import { useRoute } from 'vue-router'
 export default {
   props: {
-    note: { type: Object, required: true }
+    note: { type: Object, required: true },
+    bug: { type: Object, required: true }
   },
   setup(props) {
     const account = computed(() => AppState.account)

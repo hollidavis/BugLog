@@ -10,11 +10,11 @@
           </div>
           <!-- Edit Bug Button -->
           <div v-if="account.id == bug.creatorId">
-            <button type="button" class="btn btn-sm btn-success" data-toggle="modal" :data-target="'#editBugModal' + bug.id">
+            <button type="button" class="btn btn-sm btn-success" data-toggle="modal" :data-target="'#editBugModal' + bug.id" v-if="bug.closed === false">
               <span class="fas fa-edit"></span>
             </button>
             <!-- Delete Bug Button -->
-            <button type="button" class="btn btn-sm btn-danger mx-2">
+            <button type="button" class="btn btn-sm btn-danger mx-2" v-if="bug.closed === false">
               <span class="fa fa-times"></span>
             </button>
           </div>

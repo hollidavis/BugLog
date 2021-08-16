@@ -7,7 +7,7 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <NoteThread :notes="notes" />
+        <NoteThread :notes="notes" :bug="bug" />
       </div>
     </div>
   </div>
