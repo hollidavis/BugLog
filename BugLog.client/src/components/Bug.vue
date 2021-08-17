@@ -4,7 +4,7 @@
       <div class="d-flex p-3 flex-row row mx-1 justify-content-around bg-primary rounded lead">
         <!-- Title -->
         <div class="col-md-3 text-center">
-          <router-link :to="{name:'BugDetailsPage', params: { bugId: bug.id } }" :title="'Navigate to ' + bug.name + ' Details Page'">
+          <router-link :to="{name:'BugDetailsPage', params: { bugId: bug.id } }" :title="'Navigate to ' + bug.title + ' Details Page'">
             <p class="m-0 text-light">
               {{ bug.title }}
             </p>
