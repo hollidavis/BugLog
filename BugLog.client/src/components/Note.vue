@@ -46,11 +46,13 @@ export default {
     return {
       account,
       async deleteNote() {
-        try {
-          await notesService.deleteNote(props.note.id, route.params.bugId)
-          Pop.toast('Successfully Deleted!', 'success')
-        } catch (error) {
-          Pop.toast(error, 'error')
+        if (await Pop.confirm()) {
+          try {
+            await notesService.deleteNote(props.note.id, route.params.bugId)
+            Pop.toast('Successfully Deleted!', 'success')
+          } catch (error) {
+            Pop.toast(error, 'error')
+          }
         }
       }
     }
