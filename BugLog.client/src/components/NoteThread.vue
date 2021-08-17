@@ -24,6 +24,7 @@
       <Note :note="n" :bug="bug" />
     </div>
   </div>
+  <CreateNoteModal />
 </template>
 
 <script>
